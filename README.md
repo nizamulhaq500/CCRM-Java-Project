@@ -76,10 +76,9 @@ CCRM-Java-Project
         javac -version
 
  # Mapping of Syllabus Topics → Code
- ```
+ 
 
- ```
-
+```
 | Topic           |  Where Used |
 
 | Encapsulation   | `Student.java` (private fields + getters/setters) |
@@ -114,7 +113,6 @@ CCRM-Java-Project
 
 | Assertions      | `assert credits > 0 : "Credits must be positive";|
 ```
-
 
 # Screenshots
 
