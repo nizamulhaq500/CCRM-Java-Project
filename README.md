@@ -4,7 +4,35 @@
 This is a console-based Java SE application to manage students, courses, enrollments, grades, and file operations.  
 It demonstrates Object-Oriented Programming concepts (Encapsulation, Inheritance, Abstraction, Polymorphism) and Java SE features like Enums, Streams, NIO.2 File I/O, Date/Time API, Recursion, Exception Handling, and Design Patterns (Singleton, Builder).
 
+# Project Structure
 
+```
+CCRM-Java-Project
+ ├─ edu/
+ │   └─ ccrm/
+ │       ├─ cli/
+ │       │   └─ MainMenu.java
+ │       ├─ config/
+ │       │   └─ AppConfig.java
+ │       ├─ domain/
+ │       │   ├─ Course.java
+ │       │   ├─ CourseCode.java
+ │       │   ├─ Enrollment.java
+ │       │   ├─ Grade.java
+ │       │   ├─ Instructor.java
+ │       │   ├─ Person.java
+ │       │   ├─ Semester.java
+ │       │   └─ Student.java
+ │       ├─ service/
+ |       |       ├─ StudentService.java
+ │       |       ├─ CourseService.java
+ │       |       └─ EnrollmentService.java
+ │       └─ util/
+ │           └─ FileUtil.java
+ ├─ screenshots/
+ └─ README.md  
+ 
+ ```
 
 # Setup & Running
 
@@ -48,6 +76,8 @@ It demonstrates Object-Oriented Programming concepts (Encapsulation, Inheritance
 
  # Mapping of Syllabus Topics → Code
 
+ ```
+
 | Topic           |  Where Used |
 
 | Encapsulation   | `Student.java` (private fields + getters/setters) |
@@ -66,7 +96,7 @@ It demonstrates Object-Oriented Programming concepts (Encapsulation, Inheritance
 | Recursion       | `folderSize()` in `FileUtil.java` |
 | Date/Time API   | `admissionDate` in `Student.java` |
 | Assertions      | `assert credits > 0 : "Credits must be positive";|
-
+```
 
 
 # Screenshots
