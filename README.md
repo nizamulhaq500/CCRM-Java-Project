@@ -4,8 +4,33 @@
 This is a console-based Java SE application to manage students, courses, enrollments, grades, and file operations.  
 It demonstrates Object-Oriented Programming concepts (Encapsulation, Inheritance, Abstraction, Polymorphism) and Java SE features like Enums, Streams, NIO.2 File I/O, Date/Time API, Recursion, Exception Handling, and Design Patterns (Singleton, Builder).
 
-
-
+# Project Structure 
+```
+CCRM-Java-Project
+ ├─ edu/
+ │   └─ ccrm/
+ │       ├─ cli/
+ │       │   └─ MainMenu.java
+ │       ├─ config/
+ │       │   └─ AppConfig.java
+ │       ├─ domain/
+ │       │   ├─ Course.java
+ │       │   ├─ CourseCode.java
+ │       │   ├─ Enrollment.java
+ │       │   ├─ Grade.java
+ │       │   ├─ Instructor.java
+ │       │   ├─ Person.java
+ │       │   ├─ Semester.java
+ │       │   └─ Student.java
+ │       ├─ service/
+ |       |       ├─ StudentService.java
+ │       |       ├─ CourseService.java
+ │       |       └─ EnrollmentService.java
+ │       └─ util/
+ │           └─ FileUtil.java
+ ├─ screenshots/
+ └─ README.md  
+```
 # Setup & Running
 
 # Requirements
@@ -47,56 +72,42 @@ It demonstrates Object-Oriented Programming concepts (Encapsulation, Inheritance
         javac -version
 
  # Mapping of Syllabus Topics → Code
+ ```
 
 | Topic           |  Where Used |
 
-
 | Encapsulation   | `Student.java` (private fields + getters/setters) |
-
 
 | Inheritance     | `Person → Student, Instructor` |
 
-
 | Abstraction     | `Person.java` (abstract class with abstract method) |
-
 
 | Polymorphism    | `printProfile()` overridden in Student/Instructor |
 
-
 | Immutable class | `CourseCode.java` |
-
 
 | Nested class    | `Course.Builder` (static nested class) |
 
-
 | Enum            | `Grade.java`, `Semester.java` |
-
 
 | Lambda & Stream | `courses.forEach(System.out::println)` in `MainMenu.java`   |
 
-
 | Singleton       | `AppConfig.java` |
-
 
 | Builder Pattern | `Course.Builder` |
 
-
 | Exceptions      | `tryBackup()` in `MainMenu.java` |
-
 
 | Custom Exception | (to be added, e.g., `MaxCreditLimitException`) |
 
-
 | File I/O (NIO.2) | `FileUtil.java` |
-
 
 | Recursion       | `folderSize()` in `FileUtil.java` |
 
-
 | Date/Time API   | `admissionDate` in `Student.java` |
 
-
 | Assertions      | `assert credits > 0 : "Credits must be positive";|
+```
 
 
 
