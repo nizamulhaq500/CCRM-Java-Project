@@ -1,14 +1,18 @@
 package edu.ccrm.cli;
 
 import edu.ccrm.domain.*;
+import edu.ccrm.service.*;
 import edu.ccrm.util.FileUtil;
 import java.util.*;
 import java.io.IOException;
 
 public class MainMenu {
     private static Scanner sc = new Scanner(System.in);
-    private static List<Student> students = new ArrayList<>();
-    private static List<Course> courses = new ArrayList<>();
+
+    // Use service classes instead of raw lists
+    private static StudentService studentService = new StudentService();
+    private static CourseService courseService = new CourseService();
+    private static EnrollmentService enrollmentService = new EnrollmentService();
 
     public static void main(String[] args) {
         int choice;
@@ -18,8 +22,10 @@ public class MainMenu {
             System.out.println("2. List Students");
             System.out.println("3. Add Course");
             System.out.println("4. List Courses");
-            System.out.println("5. Backup Example File");
-            System.out.println("6. Exit");
+            System.out.println("5. Enroll Student in Course");
+            System.out.println("6. List Enrollments");
+            System.out.println("7. Backup Example File");
+            System.out.println("8. Exit");
             System.out.print("Enter choice: ");
             choice = sc.nextInt(); sc.nextLine();
 
@@ -28,11 +34,13 @@ public class MainMenu {
                 case 2: listStudents(); break;
                 case 3: addCourse(); break;
                 case 4: listCourses(); break;
-                case 5: tryBackup(); break;
-                case 6: System.out.println("Bye!"); break;
+                case 5: enrollStudent(); break;
+                case 6: listEnrollments(); break;
+                case 7: tryBackup(); break;
+                case 8: System.out.println("Bye!"); break;
                 default: System.out.println("Invalid!");
             }
-        } while (choice != 6);
+        } while (choice != 8);
     }
 
     private static void addStudent() {
@@ -46,12 +54,12 @@ public class MainMenu {
         String reg = sc.nextLine();
 
         Student s = new Student(id, name, email, reg);
-        students.add(s);
+        studentService.addStudent(s);
         System.out.println("Student added.");
     }
 
     private static void listStudents() {
-        for (Student s : students) {
+        for (Student s : studentService.getAllStudents()) {
             s.printProfile();
         }
     }
@@ -73,12 +81,37 @@ public class MainMenu {
                         .setInstructor(inst)
                         .setSemester(Semester.SPRING)
                         .build();
-        courses.add(c);
+        courseService.addCourse(c);
         System.out.println("Course added.");
     }
 
     private static void listCourses() {
-        courses.forEach(System.out::println);
+        for (Course c : courseService.getAllCourses()) {
+            System.out.println(c);
+        }
+    }
+
+    private static void enrollStudent() {
+        System.out.print("Enter student id: ");
+        String sid = sc.nextLine();
+        Student s = studentService.findStudentById(sid);
+
+        System.out.print("Enter course code: ");
+        String ccode = sc.nextLine();
+        Course c = courseService.findCourseByCode(ccode);
+
+        if (s != null && c != null) {
+            enrollmentService.enroll(s, c);
+            System.out.println("Enrollment successful.");
+        } else {
+            System.out.println("Invalid student id or course code.");
+        }
+    }
+
+    private static void listEnrollments() {
+        for (Enrollment e : enrollmentService.getAllEnrollments()) {
+            System.out.println(e);
+        }
     }
 
     private static void tryBackup() {
