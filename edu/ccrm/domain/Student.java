@@ -21,7 +21,9 @@ public class Student extends Person {
     public void enrollCourse(Course c) {
         enrolledCourses.add(c);
     }
-
+    public String getId() {
+        return id;
+    }
     @Override
     public void printProfile() {
         System.out.println("Student: " + fullName + " (" + regNo + ")");

@@ -17,7 +17,13 @@ public class Enrollment {
     public int getGradePoints() {
         return (grade == null) ? 0 : grade.getPoints();
     }
+    public Student getStudent() {
+    return student;
+}
 
+    public Course getCourse() {
+        return course;
+    }
     @Override
     public String toString() {
         return student.getFullName() + " -> " + course.toString() + " | Grade: " + grade;

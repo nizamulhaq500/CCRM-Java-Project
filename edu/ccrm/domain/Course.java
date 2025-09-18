@@ -33,7 +33,9 @@ public class Course {
         this.instructor = instructor;
         this.semester = semester;
     }
-
+    public String getCode() {
+        return code.getCode();   // unwrap CourseCode into String
+    }
     @Override
     public String toString() {
         return code.getCode() + " - " + title + " (" + credits + " cr)";

@@ -17,7 +17,7 @@ public class CourseService {
 
     public Course findCourseByCode(String code) {
         for (Course c : courses) {
-            if (c.getCourseCode().getCode().equals(code)) {
+            if (c.getCode().equals(code)) {   // ✅ use getCode()
                 return c;
             }
         }

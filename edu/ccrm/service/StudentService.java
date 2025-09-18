@@ -17,7 +17,7 @@ public class StudentService {
 
     public Student findStudentById(String id) {
         for (Student s : students) {
-            if (s.getStudentId().equals(id)) {
+            if (s.getId().equals(id)) {   // ✅ use getId()
                 return s;
             }
         }
