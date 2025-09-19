@@ -1,8 +1,7 @@
 # Campus Course & Records Manager (CCRM)
 
 # Project Overview
-This is a console-based Java SE application to manage students, courses, enrollments, grades, and file operations.  
-It demonstrates Object-Oriented Programming concepts (Encapsulation, Inheritance, Abstraction, Polymorphism) and Java SE features like Enums, Streams, NIO.2 File I/O, Date/Time API, Recursion, Exception Handling, and Design Patterns (Singleton, Builder).
+This Campus Course & Records Manager (CCRM) is a simple Java console application designed to manage students, courses, and enrollments. The project follows a modular structure with separate packages for CLI (MainMenu), domain models (Student, Course, Enrollment, etc.), services (StudentService, CourseService, EnrollmentService), and utilities (FileUtil). Users can add and list students or courses, enroll students in courses, view enrollments, and perform file backup operations. The implementation is based on object-oriented principles with a layered architecture, making the code clean, organized, and easy to extend in the future (e.g., database integration via JDBC).
 
 
 # Project Structure
